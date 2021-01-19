@@ -26,14 +26,18 @@ public class PizzaOrder
 		System.out.print("> Is it your BIRTHDAY? (10% discount available on presenting ID)  (Y/N):  ");
 		input = keyboard.nextLine();
 
+// TASK-1: Discount	Eligibility
       	// Determine if user is eligible for discount by having birthday today
+      	// ADD LINES HERE	
       	if (input.equals("y") || input.equals("Y"))
       		discount = true;	// Convert discount to true if the answer is yes
 
 		orders[numOfOrders++] = orderPizza();	// get first order
 		previewOrder(orders);	// view order info
 
+// TASK-2: Repeated Menu Options
       	// Keep displaying the menu options until user is done
+      	// ADD LINES HERE, modify the code below if necessary
 		do { // Prints orders until the maximum (10) or until command 1 or 3 is pressed
 		printMenu();	// print action menu options
 
@@ -102,7 +106,9 @@ public class PizzaOrder
 		System.out.print("> 20, 30, or 40 (enter the number only): ");
 		size = keyboard.nextInt();
 
+// TASK-3: Set Price
 		// Set the price based on the size of pizza ordered
+		// ADD LINES HERE
 		if (size == 20) // Costs given depending on the size
 			cost = 1000;
 		else if (size == 30)
@@ -153,7 +159,9 @@ public class PizzaOrder
 			toppings = toppings + " + Mushroom";
 		}
 
+// TASK-4: Toppings Cost
 		// Add additional toppings cost to cost of pizza
+		// ADD LINES HERE
 		cost += toppingCost * numberOfToppings; // Additional cost
 
 		//save the order information
@@ -170,7 +178,9 @@ public class PizzaOrder
 		System.out.println("-----------------------------");
 		System.out.println("Your order: ");
 
+// TASK-5: Order Info
 		// Print individual order info
+		// ADD LINES HERE, modify the code below
 		for (int i = 0; i < orders.length; i++) {
 			if (orders[i] != null) // Prints only given order, if not given it will print null
 				System.out.println((i + 1) + ") " + orders[i]);
@@ -180,6 +190,8 @@ public class PizzaOrder
 		System.out.println("Total: " + getTotalCost(orders) + " T");
 	}
 
+// TASK-6: Total Cost
+	// Implement the method below
 	/**
 	Parses the orders array to calculate the total cost 
 	*/
@@ -210,8 +222,10 @@ public class PizzaOrder
 		// calculate total cost
 		int cost = getTotalCost(orders);
 
+// TASK-7: Discount Calculation
 		// Apply discount only if user is eligible
 		// update and print the cost with discount
+		// ADD LINES HERE
 		if (discount) { // This applies only if the user is eligible for discount
 			System.out.println("-----------------------------");
 			System.out.println("TOTAL with DISCOUNT (on presenting ID only!):");
@@ -231,8 +245,11 @@ public class PizzaOrder
 		System.out.println("Order ID: " + generateCode());	// generates random ID
 	}
 
+// TASK-8: Current Date
+	// Implement the method below
 	/**
 	Prints the current system date in DD.MM.YYYY format
+	HINT: https://www.javatpoint.com/java-get-current-date
 	*/
 	public static void printCurrentDate(){
 		// print current date 
@@ -241,6 +258,8 @@ public class PizzaOrder
 		System.out.print(formatter.format(date));  
 	} 
 
+// TASK-9: Current Time
+	// Implement the method below
 	/**
 	Prints the current system time in HH:MM format
 	*/
@@ -250,6 +269,8 @@ public class PizzaOrder
 		System.out.print(formatter.format(date));
 	}
 
+// TASK-10: Generate Code
+	// Implement the method below
 	/**
 	Generates a random 4-digit number and returns as a String consisting of 4 digits fills with leading zeros if necessary
 	Ex: "1097", "0083"
